@@ -1,0 +1,59 @@
+{"male1": {
+	"requirements" : {
+						"tan" : 5,
+						"accessories" : {
+								"glasses": 1,
+								"tie": 1,
+								"band": -2,
+								"ribbon": 0
+									},
+						"love": 20
+						},
+	"intro" : {
+				"subject": "You have a new message!",
+				"message": "OMG! I just knocked my smoothie over and its contents have spilled all over my keyboard. Do you like Shel Silverstein? A Light in the Attic changed my life. You just look like someone who would be a fan. The little man who runs my brain has taken over and I just had to send you a note.",
+				"belief_id": "",
+				"belief_dlg_id": "",
+				"belief_dlg_id_num":"",
+				"responses" : [
+								{ 	"response" : "Do you drink a lot of smoothies? What's your favorite?",
+									"path" : "male1/smoothies",
+									"time" : 1
+								},
+								{ 	"response" : "I love Uncle Shelby! What else are you into?",
+									"path" : "male1/shel",
+									"time" : 3
+								},
+								{ 	"response" : "I love attics! Why would you want the lights on though?",
+									"path" : "male1/lights",
+									"time" : 9999
+								}
+
+								]
+
+			},
+	"smoothies" : {
+
+					"subject": "[character] replied to your message",
+					"message" : "Oh yeah! I'm a total health nut. I make one after every morning run. My favorite is kale and carrots with a little nutmeg.",
+					"belief_id": "",
+					"belief_dlg_id": "",
+					"belief_dlg_id_num":"",
+
+					"responses" : [
+									{	"response" : "Eww, kale is gross",
+										"path" : "male1/kalegross",
+										"time" : 3
+										},
+									{ 	"response" : "I love kale!",
+										"path" : "male1/lovekale",
+										"time" : 2},
+									{	"response" : "I'm more of a fruit smoothie kind of person.",
+										"path" : "male1/fruitsmoothie",
+										"time" : 1}
+
+								]
+			},
+
+	}
+}
