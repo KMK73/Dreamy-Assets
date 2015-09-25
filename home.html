@@ -10,9 +10,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Conversation JSON</title>
     <link rel="stylesheet" href="css/foundation.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/foundation.min.js"></script>
+
     <script type="text/javascript" src="js/vendor/clone-form-td-multiple.js"></script>
-    <script type="text/javascript" src="js/vendor/clone-form-td.js"></script><script src="js/vendor/modernizr.js"></script>
+    <script type="text/javascript" src="js/vendor/clone-form-td.js"></script>
+    <script src="js/vendor/modernizr.js"></script>
   </head>
     
     <body>
@@ -36,18 +40,6 @@
               <a href="#">Main Item 1</a>
             </li>
             <li class="divider"></li>
-            <li><a href="#">Main Item 2</a></li>
-            <li class="divider"></li>
-            <li class="has-dropdown">
-              <a href="#">Main Item 3</a>
-              <ul class="dropdown">
-                <li><a href="#">Dropdown Option</a></li>
-                <li><a href="#">Dropdown Option</a></li>
-                <li><a href="#">Dropdown Option</a></li>
-                <li class="divider"></li>
-                <li><a href="#">See all →</a></li>
-              </ul>
-            </li>
           </ul>
         </section>
       </nav>
@@ -69,7 +61,7 @@
                       <label class="inline">Character Name</label>
                     </div>
                     <div class="large-10 columns">
-                      <input type="text" id="yourName" placeholder="Jane Smith">
+                      <input type="text" id="yourName" name="character" placeholder="Jane Smith">
                     </div>
                   </div>
     <div class="row collapse" style="">
@@ -102,7 +94,7 @@
                     <div class="range-slider round" data-slider data-options="start: 1; end: 20;">
                         <span class="range-slider-handle" role="slider" tabindex="0"></span>
                             <span class="range-slider-active-segment"></span>
-                            <input type="hidden">
+                            <input type="hidden" name="love">
                     </div>
             </div>
         </div>
@@ -113,39 +105,49 @@
 <div class="row">
     <div class="large-10 columns">
 <!--        PASSAGE NAME FORM FIELD-->
-            <button type="submit" class="radius button">Add Converstaion</button>                         <label class="inline">Passage Name</label>
-            <input type="text" id="passageName" placeholder="Passage Name">
+<div id="passages">
+  <div class="passage">
+        <label class="inline">Passage Name</label>
+            <input type="text" id="passageName" placeholder="Passage Name" name="passage[1]">
         
 <!--        SUBJECT FORM FIELD-->            
             <label class="inline">Subject</label>
-            <input type="text" id="subjectMessage" placeholder="You have a new message!">
+            <input type="text" id="subjectMessage" placeholder="You have a new message!" name="subject[1]">
 
 <!--        MESSAGE FORM FIELD-->        
                 <label class="inline">Message</label>
-                <textarea rows="4" placeholder="Enter message here"></textarea>
+                <textarea rows="4" placeholder="Enter message here" name="message[1]"></textarea>
 
-                    
+<!--        <button type="button" id="btnAdd_2" name="btnAdd_2" class="btn btn-primary button success">Add Passage</button>
+        <button type="button" id="btnDel_2" name="btnDel_2" class="btn btn-danger button alert"><span class="ui-button-text">Remove Passage</span></button>
+-->
+
+
 <!------------  Begin cloned RESPONSE section ---------------------------->
-        <div id="entry1" class="clonedInput_1">
+    <div class="responses">
+        <div id="entry1" class="response">
           <!-- Text input-->
           <div class="form-group">
             <label class="label_response control-label" for="_response">Response:</label>
-              <textarea rows="3" id="_response" name="_response" type="text" placeholder="response here" class="input_response form-control"></textarea>
+              <textarea rows="3" id="_response" name="response[1][]" type="text" placeholder="response here" class="input_response form-control"></textarea>
           </div>
-        </div><!-- end #entry1 -->
-        <!-- Button (Double) -->
-        <p>
-        <button type="button" id="btnAdd_1" name="btnAdd" class="btn btn-primary button success">Add response</button>
-          <button type="button" id="btnDel_1" name="btnDel" class="btn btn-danger button alert"><span class="ui-button-text">Remove response</span></button>
-        </p>
-        
 <!--        PATH FORM FIELD-->            
             <label class="inline">Path</label>
-            <input type="text" id="pathMessage" placeholder="Enter path">      
+            <input type="text" id="pathMessage" name="path[1][]" placeholder="Enter path">      
 
 <!--        Response time FORM FIELD-->            
             <label class="inline">Response Time</label>
-            <input type="text" id="responseTime" placeholder="Enter response time">  
+            <input type="text" id="responseTime" name="responsetime[1][]" placeholder="Enter response time">  
+        </div><!-- end #entry1 -->
+  </div>       
+        <!-- Button (Double) -->
+        <p>
+        <button type="button" id="repeat_response" name="btnAdd" class="btn btn-primary button success">Add response</button>
+          <button type="button" id="btnDel_1" name="btnDel" class="btn btn-danger button alert"><span class="ui-button-text">Remove response</span></button>
+        </p>
+      <button type="button" id="repeat_passage" name="btnAdd" class="btn btn-primary button success">Add passage</button>
+
+</div>
 
 <!--        SUBMIT BUTTON ------------------------------------------------>                  
                 <button type="submit" class="radius button">Submit</button>
@@ -157,10 +159,23 @@
           </div>
         </div>
 <!--          END OF CONTACT FORM SECTION-->
-
-    <script src="js/vendor/jquery.js"></script>
-  <script src="js/foundation.min.js"></script>
   <script>
     $(document).foundation();
+    
+    $('#repeat_passage').click(function(){
+        var newgroup = $('.passage:last').clone(true);
+        newgroup.find('input').each(function(){
+            this.name = this.name.replace(/\[(\d+)\]/,function(str,p1){return '[' + (parseInt(p1,10)+1) + ']'});
+        }).end().appendTo($(this).parent());
+    });
+
+    $('#repeat_response').click(function(){
+        var newgroup = $('.response:last').clone(true);
+        newgroup.find('input').each(function(){
+            this.name = this.name.replace(/\[(\d+)\]/,function(str,p1){return '[' + (parseInt(p1,10)+1) + ']'});
+        }).end().appendTo($(this).parent());
+    });
+
+
   </script>
 </body>
