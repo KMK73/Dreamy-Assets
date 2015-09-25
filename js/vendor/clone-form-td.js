@@ -65,7 +65,11 @@ $(function () {
         // Email - text
         newElem.find('.label_email').attr('for', 'ID' + newNum + '_email_address');
         newElem.find('.input_email').attr('id', 'ID' + newNum + '_email_address').attr('name', 'ID' + newNum + '_email_address').val('');
-
+        
+        // Response - text
+        newElem.find('.label_response').attr('for', 'ID' + newNum + '_response');
+        newElem.find('.input_response').attr('id', 'ID' + newNum + '_response').attr('name', 'ID' + newNum + '_response').val('');
+        
         // Twitter handle (for Bootstrap demo) - append and text
         newElem.find('.label_twt').attr('for', 'ID' + newNum + '_twitter_handle');
         newElem.find('.input_twt').attr('id', 'ID' + newNum + '_twitter_handle').attr('name', 'ID' + newNum + '_twitter_handle').val('');

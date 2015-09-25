@@ -45,6 +45,10 @@ $(function () {
         // Email input - text
         newElem.find('.label_email').attr('for', 'ID' + newNum + '_email_address');
         newElem.find('.input_email').attr('id', 'ID' + newNum + '_email_address').attr('name', 'ID' + newNum + '_email_address').val('');
+        
+        // Response - text
+        newElem.find('.label_response').attr('for', 'ID' + newNum + '_response');
+        newElem.find('.input_response').attr('id', 'ID' + newNum + '_response').attr('name', 'ID' + newNum + '_response').val('');
 
     // Insert the new element after the last "duplicatable" input field
         $('#entry' + num).after(newElem);
@@ -62,9 +66,11 @@ $(function () {
         $('#btnAdd_1').attr('disabled', true).text("You've reached the limit"); // value here updates the text in the 'add' button when the limit is reached 
     });
 
+//    CHANGED FOR RESPONSE REMOVAL SECTION
+    
     $('#btnDel_1').click(function () {
     // Confirmation dialog box. Works on all desktop browsers and iPhone.
-        if (confirm("Are you sure you wish to remove this email? This cannot be undone."))
+        if (confirm("Are you sure you wish to remove this response? This cannot be undone."))
             {
                 var num = $('.clonedInput_1').length;
                 // how many "duplicatable" input fields we currently have
@@ -73,9 +79,9 @@ $(function () {
                     if (num -1 === 1)
                 $('#btnDel_1').attr('disabled', true);
                 // enable the "add" button. IMPORTANT: only for forms using input type="button" (see older demo). DELETE if using button element.
-                $('#btnAdd_1').attr('disabled', false).prop('value', "Add email");
+                $('#btnAdd_1').attr('disabled', false).prop('value', "Add Response");
                 // enable the "add" button. IMPORTANT: only for forms using the new button tag (see Bootstrap demo). DELETE if using input type="button" element.
-                $('#btnAdd_1').attr('disabled', false).text("Add email");});
+                $('#btnAdd_1').attr('disabled', false).text("Add Response");});
             }
         return false; // Removes the last section you added
     });
