@@ -10,6 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Conversation JSON</title>
     <link rel="stylesheet" href="css/foundation.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script type="text/javascript" src="js/vendor/clone-form-td-multiple.js"></script>
     <script type="text/javascript" src="js/vendor/clone-form-td.js"></script><script src="js/vendor/modernizr.js"></script>
   </head>
@@ -122,20 +123,14 @@
 <!--        MESSAGE FORM FIELD-->        
                 <label class="inline">Message</label>
                 <textarea rows="4" placeholder="Enter message here"></textarea>
- 
-<!--        RESPONSES FORM FIELD-->                               
-                <label class="inline">Responses</label>
-                <button type="button" class="radius button">+</button>
-                <textarea rows="4" placeholder="Response here"></textarea>
-    </div>
-</div>
+
                     
     <!-- TESTING CLONE OF SECTION: Begin cloned email section -->
         <div id="entry1" class="clonedInput_1">
           <!-- Text input-->
           <div class="form-group">
             <label class="label_email control-label" for="email_address">Response:</label>
-            <input id="email_address" name="email_address" type="text" placeholder="response here" class="input_email form-control">
+              <textarea rows="3" id="email_address" name="email_address" type="text" placeholder="response here" class="input_email form-control"></textarea>
           </div>
         </div><!-- end #entry1 -->
         <!-- Button (Double) -->
