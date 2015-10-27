@@ -5,7 +5,8 @@
 -->
 <!doctype html>
 <html class="no-js" lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Conversation JSON</title>
@@ -18,164 +19,183 @@
     <script type="text/javascript" src="js/vendor/clone-form-td-multiple.js"></script>
     <script type="text/javascript" src="js/vendor/clone-form-td.js"></script>
     <script src="js/vendor/modernizr.js"></script>
-  </head>
-    
-    <body>
-      <nav class="top-bar" data-topbar>
+</head>
+
+<body>
+    <nav class="top-bar" data-topbar>
         <ul class="title-area">
-          <li class="name">
-            <h1>
+            <li class="name">
+                <h1>
               <a href="#">
                 Dreamy Conversation Creator
               </a>
             </h1>
-          </li>
-          <li class="toggle-topbar menu-icon"><a href="#"><span>menu</span></a></li>
-        </ul>
-     
-        <section class="top-bar-section">
-           
-          <ul class="right">
-            <li class="divider"></li>
-            <li class="has-dropdown">
-              <a href="#">Main Item 1</a>
             </li>
-            <li class="divider"></li>
-          </ul>
+            <li class="toggle-topbar menu-icon"><a href="#"><span>menu</span></a></li>
+        </ul>
+
+        <section class="top-bar-section">
+
+            <ul class="right">
+                <li class="divider"></li>
+                <li class="has-dropdown">
+                    <a href="#">Main Item 1</a>
+                </li>
+                <li class="divider"></li>
+            </ul>
         </section>
-      </nav>
+    </nav>
 
-      <div class="row" style="border-style: dotted">
-<!--CONTACT FORM START SECTION            -->
-            <div id="form" class="small-12 small centered large-10 large-centered columns">
-              <h1 class="title">Create Character Conversation</h1>
-              <div class="content small-12 small centered large-10 large-centered columns" data-slug="panel1">
+    <div class="row">
+        <!--CONTACT FORM START SECTION            -->
+        <div id="form" class="small-12 small centered large-12 large-centered columns">
+            <h1 class="title">Create Character Conversation</h1>
+            <div class="content small-12 small centered large-12 large-centered columns" data-slug="panel1">
                 <form>
-                    
-        <!--character name row start            -->
-        <div class="row">
-                    <div class="large-6 columns">
-                      <label class="inline">Character Name</label>
-                      <input type="text" id="yourName" name="character" placeholder="Jane Smith">
-                    </div>
-        </div><!--character row end            -->
-    
-    <div class="row"><!----------   character accessories row start-->
-                <!----------   character accessories multiselect-->
-        <div class="small-8 small-centered large-6 large-uncentered columns">
-            <label>Accessories</label>
-                <input id="checkbox1" type="checkbox"><label for="checkbox1">Headband</label>
-                <input id="checkbox2" type="checkbox"><label for="checkbox2">Glasses</label>
-                <input id="checkbox3" type="checkbox"><label for="checkbox3">Bowtie</label>
-                <input id="checkbox4" type="checkbox"><label for="checkbox4">Piercings</label>
-        </div>                       
-    </div> <!--end accessory row//-->
-        <div class="row"> <!--slider row start //-->
-<!----------         TAN SLIDER --------------------------------------------------->         
-            <div class="small-8 small-centered large-4 large-uncentered columns">
-                <label>Tan Slider</label>
-                    <div class="range-slider round" data-slider data-options="start: 1; end: 10;">
-                        <span class="range-slider-handle" role="slider" tabindex="0"></span>
-                              <span class="range-slider-active-segment"></span>
-                            <input type="hidden">
-                    </div>
-            </div>              
-                    
-<!--                     LOVE RANGE SLIDER -->
-            <div class="small-8 small-centered large-4 large-uncentered columns">
-                <label>Love Slider</label>
-                    <div class="range-slider round" data-slider data-options="start: 1; end: 20;">
-                        <span class="range-slider-handle" role="slider" tabindex="0"></span>
-                            <span class="range-slider-active-segment"></span>
-                            <input type="hidden" name="love">
-                    </div>
-            </div>
 
-    </div><!--sliders row end //-->
-<!--                      END OF LOVE RANGE SLIDER CODE ^-->
-                    
-                    
-                    
-<!--ADD CONVERSATION BUTTON ----------------------->
-<div class="row">
-    <div class="small-12 small-centered large-8 large-uncentered columns">
-<!--        PASSAGE NAME FORM FIELD-->
-<div id="passages">
-  <div class="passage">
-        <label class="inline">Passage Name</label>
-            <input type="text" id="passageName" placeholder="Passage Name" name="passage[1]">
-        
-<!--        SUBJECT FORM FIELD-->            
-            <label class="inline">Subject</label>
-            <input type="text" id="subjectMessage" placeholder="You have a new message!" name="subject[1]">
+                    <!--character name row start            -->
+                    <div class="row">
+                        <div class="large-6 columns">
+                            <h2>Character Name</h2>
+                            <input type="text" id="yourName" name="character" placeholder="Jane Smith">
+                        </div>
+                    </div>
+                    <!--character row end            -->
 
-<!--        MESSAGE FORM FIELD-->        
-                <label class="inline">Message</label>
-                <textarea rows="4" placeholder="Enter message here" name="message[1]"></textarea>
+                    <div class="row">
+                        <!----------   character accessories row start-->
+                        <!----------   character accessories multiselect-->
+                        <div class="small-8 small-centered large-6 large-uncentered columns">
+                            <label>Accessories</label>
+                            <input id="checkbox1" type="checkbox">
+                            <label for="checkbox1">Headband</label>
+                            <input id="checkbox2" type="checkbox">
+                            <label for="checkbox2">Glasses</label>
+                            <input id="checkbox3" type="checkbox">
+                            <label for="checkbox3">Bowtie</label>
+                            <input id="checkbox4" type="checkbox">
+                            <label for="checkbox4">Piercings</label>
+                        </div>
+                    </div>
+                    <!--end accessory row//-->
+                    <div class="row">
+                        <!--slider row start //-->
+                        <!----------         TAN SLIDER --------------------------------------------------->
+                        <div class="small-8 small-centered large-4 large-uncentered columns">
+                            <label>Tan Slider</label>
+                            <div class="range-slider round" data-slider data-options="start: 1; end: 10;">
+                                <span class="range-slider-handle" role="slider" tabindex="0"></span>
+                                <span class="range-slider-active-segment"></span>
+                                <input type="hidden">
+                            </div>
+                        </div>
 
-<!--        <button type="button" id="btnAdd_2" name="btnAdd_2" class="btn btn-primary button success">Add Passage</button>
+                        <!--                     LOVE RANGE SLIDER -->
+                        <div class="small-8 small-centered large-4 large-uncentered columns">
+                            <label>Love Slider</label>
+                            <div class="range-slider round" data-slider data-options="start: 1; end: 20;">
+                                <span class="range-slider-handle" role="slider" tabindex="0"></span>
+                                <span class="range-slider-active-segment"></span>
+                                <input type="hidden" name="love">
+                            </div>
+                        </div>
+
+                    </div>
+                    <!--sliders row end //-->
+                    <!--                      END OF LOVE RANGE SLIDER CODE ^-->
+
+
+
+                    <!--ADD CONVERSATION BUTTON ----------------------->
+                    <div class="row">
+                        <div class="small-12 large-12 large-centered columns">
+                            <!--        PASSAGE NAME FORM FIELD-->
+                            <div id="passages">
+                                <fieldset class="passage">
+                                    <div class="passage">
+                                        <label class="inline">Passage Name</label>
+                                        <input type="text" id="passageName" placeholder="Passage Name" name="passage[1]">
+
+                                        <!--        SUBJECT FORM FIELD-->
+                                        <label class="inline">Subject</label>
+                                        <input type="text" id="subjectMessage" placeholder="You have a new message!" name="subject[1]">
+
+                                        <!--        MESSAGE FORM FIELD-->
+                                        <label class="inline">Message</label>
+                                        <textarea rows="4" placeholder="Enter message here" name="message[1]"></textarea>
+
+                                        <!--        <button type="button" id="btnAdd_2" name="btnAdd_2" class="btn btn-primary button success">Add Passage</button>
         <button type="button" id="btnDel_2" name="btnDel_2" class="btn btn-danger button alert"><span class="ui-button-text">Remove Passage</span></button>
 -->
 
 
-<!------------  Begin cloned RESPONSE section ---------------------------->
-    <div class="responses small-12 small-centered large-10 large-centered columns">
-        <fieldset>
-        <div id="entry1" class="response small-12 small-centered large-10 large-centered columns">
-          <!-- Text input-->
-          <div class="form-group">
-            <label class="label_response control-label" for="_response">Response:</label>
-              <textarea rows="3" id="_response" name="response[1][]" type="text" placeholder="response here" class="input_response form-control"></textarea>
-          </div>
-<!--        PATH FORM FIELD-->            
-            <label class="inline">Path</label>
-            <input type="text" id="pathMessage" name="path[1][]" placeholder="Enter path">      
+                                        <!------------  Begin cloned RESPONSE section ---------------------------->
+                                        <div class="responses small-12 small-centered large-12 large-centered columns">
+                                            <fieldset class="response">
+                                                <div id="entry1" class="small-12 small-centered large-12 large-centered columns">
+                                                    <!-- Text input-->
+                                                    <div class="form-group">
+                                                        <label class="label_response control-label" for="_response">Response:</label>
+                                                        <textarea rows="3" id="_response" name="response[1][]" type="text" placeholder="response here" class="input_response form-control"></textarea>
+                                                    </div>
+                                                    <!--        PATH FORM FIELD-->
+                                                    <label class="inline">Path</label>
+                                                    <input type="text" id="pathMessage" name="path[1][]" placeholder="Enter path">
 
-<!--        Response time FORM FIELD-->            
-            <label class="inline">Response Time</label>
-            <input type="text" id="responseTime" name="responsetime[1][]" placeholder="Enter response time">  
-        </div><!-- end #entry1 -->
-    </fieldset>
-  </div>       
-        <!-- Button (Double) -->
-        <p>
-        <button type="button" id="repeat_response" name="btnAdd" class="btn btn-primary button success">Add response</button>
-          <button type="button" id="btnDel_1" name="btnDel" class="btn btn-danger button alert"><span class="ui-button-text">Remove response</span></button>
-        </p>
-      <button type="button" id="repeat_passage" name="btnAdd" class="btn btn-primary button success">Add passage</button>
+                                                    <!--        Response time FORM FIELD-->
+                                                    <label class="inline">Response Time</label>
+                                                    <input type="text" id="responseTime" name="responsetime[1][]" placeholder="Enter response time">
+                                                </div>
+                                                <!-- end #entry1 -->
+                                                <!-- Button (Double) -->
+                                                <p>
+                                                    <button type="button" id="repeat_response" name="btnAdd" class="btn btn-primary button success">Add response</button>
+                                                    <button type="button" id="btnDel_1" name="btnDel" class="btn btn-danger button alert"><span class="ui-button-text">Remove response</span></button>
+                                                </p>
+                                            </fieldset>
+                                        </div>
+                                        <button type="button" id="repeat_passage" name="btnAdd" class="btn btn-primary button success">Add passage</button>
 
-</div>
+                                    </div>
+                                </fieldset>
 
-<!--        SUBMIT BUTTON ------------------------------------------------>                  
-                <button type="submit" class="radius button">Submit</button>
-    
-<!--        END OF FORM TAG------------------------------------------------>                  
-                  </form>
-              </div>
+                                <!--        SUBMIT BUTTON ------------------------------------------------>
+                                <button type="submit" class="radius button">Submit</button>
+
+                                <!--        END OF FORM TAG------------------------------------------------>
+                </form>
+                </div>
+                </div>
+                </div>
             </div>
         </div>
     </div>
     </div>
-    </div>
-</div>
-<!--          END OF CONTACT FORM SECTION-->
-  <script>
-    $(document).foundation();
-    
-    $('#repeat_passage').click(function(){
-        var newgroup = $('.passage:last').clone(true);
-        newgroup.find('input').each(function(){
-            this.name = this.name.replace(/\[(\d+)\]/,function(str,p1){return '[' + (parseInt(p1,10)+1) + ']'});
-        }).end().appendTo($(this).parent());
-    });
+    <!--          END OF CONTACT FORM SECTION-->
+    <script>
+        $(document).foundation();
 
-    $('#repeat_response').click(function(){
-        var newgroup = $('.response:last').clone(true);
-        newgroup.find('input').each(function(){
-            this.name = this.name.replace(/\[(\d+)\]/,function(str,p1){return '[' + (parseInt(p1,10)+1) + ']'});
-        }).end().appendTo($(this).parent());
-    });
+        $('#repeat_passage').click(function () {
+            var newgroup = $('.passage:last').clone(true);
+            newgroup.find('input').each(function () {
+                this.name = this.name.replace(/\[(\d+)\]/, function (str, p1) {
+                    return '[' + (parseInt(p1, 10) + 1) + ']'
+                });
+            }).end().appendTo($(this).parent());
+        });
 
+        $('#repeat_response').click(function () {
+            var newgroup = $('.response:last').clone(true);
+            newgroup.find('input').each(function () {
+                this.name = this.name.replace(/\[(\d+)\]/, function (str, p1) {
+                    return '[' + (parseInt(p1, 10) + 1) + ']'
+                });
+            }).end().appendTo($(this).parent());
+        });
 
-  </script>
+        //removing last passage 
+        $("#btnDel_1").click(function () {
+            $("#repeat_passage").val('');
+        });
+    </script>
 </body>
