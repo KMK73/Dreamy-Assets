@@ -112,7 +112,7 @@
                             <!--        PASSAGE NAME FORM FIELD-->
                             <div id="passages">
                                 <fieldset class="passage">
-                                    <div class="passage">
+                                    <div class="passage_div">
                                         <label class="inline">Passage Name</label>
                                         <input type="text" id="passageName" placeholder="Passage Name" name="passage[1]">
 
@@ -130,9 +130,9 @@
 
 
                                         <!------------  Begin cloned RESPONSE section ---------------------------->
-                                        <div class="responses small-12 small-centered large-12 large-centered columns">
+                                        <div id="responses" class="small-12 small-centered large-12 large-centered columns">
                                             <fieldset class="response">
-                                                <div id="entry1" class="small-12 small-centered large-12 large-centered columns">
+                                                <div class="entry small-12 small-centered large-12 large-centered columns">
                                                     <!-- Text input-->
                                                     <div class="form-group">
                                                         <label class="label_response control-label" for="_response">Response:</label>
@@ -149,22 +149,23 @@
                                                 <!-- end #entry1 -->
                                                 <!-- Button (Double) -->
                                                 <p>
-                                                    <button type="button" id="repeat_response" name="btnAdd" class="btn btn-primary button success">Add response</button>
-                                                    <button type="button" id="btnDel_1" name="btnDel" class="btn btn-danger button alert"><span class="ui-button-text">Remove response</span></button>
+                                                    <button type="button" name="btnAdd" class="repeat_response btn btn-primary button success">Add response</button>
+                                                    <button type="button" name="btnDel" class="delete_response btn btn-danger button">Remove response</button>
                                                 </p>
                                             </fieldset>
                                         </div>
-                                        <button type="button" id="repeat_passage" name="btnAdd" class="btn btn-primary button success">Add passage</button>
+                                        <button type="button" name="btnAdd" class="repeat_passage btn btn-primary button success">Add passage</button>
+                                        <button type="button" name="btnDel" class="delete_passage btn btn-primary button alert">Remove passage</button>
 
                                     </div>
                                 </fieldset>
+                </div>
 
                                 <!--        SUBMIT BUTTON ------------------------------------------------>
                                 <button type="submit" class="radius button">Submit</button>
 
                                 <!--        END OF FORM TAG------------------------------------------------>
                 </form>
-                </div>
                 </div>
                 </div>
             </div>
@@ -175,27 +176,36 @@
     <script>
         $(document).foundation();
 
-        $('#repeat_passage').click(function () {
-            var newgroup = $('.passage:last').clone(true);
+        $('.repeat_passage').click(function () {
+//            var newgroup = $('.passage:last').clone(true);
+            var newgroup = $(this).parent().parent().clone(true);
+
             newgroup.find('input').each(function () {
                 this.name = this.name.replace(/\[(\d+)\]/, function (str, p1) {
                     return '[' + (parseInt(p1, 10) + 1) + ']'
                 });
-            }).end().appendTo($(this).parent());
+            }).end().appendTo($("#passages"));
         });
 
-        $('#repeat_response').click(function () {
-            var newgroup = $('.response:last').clone(true);
+        $('.repeat_response').click(function () {
+//            var newgroup = $('.response:last').clone(true);
+            var newgroup = $(this).parent().parent().clone(true);
+
             newgroup.find('input').each(function () {
                 this.name = this.name.replace(/\[(\d+)\]/, function (str, p1) {
                     return '[' + (parseInt(p1, 10) + 1) + ']'
                 });
-            }).end().appendTo($(this).parent());
+            }).end().appendTo($("#responses"));
         });
 
         //removing last passage 
-        $("#btnDel_1").click(function () {
-            $("#repeat_passage").val('');
+        $(".delete_response").click(function () {
+            $(this).parent().parent().remove();
+        });
+           
+        //removing last passage 
+        $(".delete_passage").click(function () {
+            $(this).parent().parent().remove();
         });
     </script>
 </body>
