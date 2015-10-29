@@ -51,7 +51,7 @@
         <div id="form" class="small-12 small centered large-12 large-centered columns">
             <h1 class="title">Create Character Conversation</h1>
             <div class="content small-12 small centered large-12 large-centered columns" data-slug="panel1">
-                <form>
+                <form method="POST" action="convert.php">
 
                     <!--character name row start            -->
                     <div class="row">
@@ -114,15 +114,15 @@
                                 <fieldset class="passage">
                                     <div class="passage_div">
                                         <label class="inline">Passage Name</label>
-                                        <input type="text" id="passageName" placeholder="Passage Name" name="passage[1]">
+                                        <input type="text" id="passageName" class="repeat" placeholder="Passage Name" name="passage[1]">
 
                                         <!--        SUBJECT FORM FIELD-->
                                         <label class="inline">Subject</label>
-                                        <input type="text" id="subjectMessage" placeholder="You have a new message!" name="subject[1]">
+                                        <input type="text" id="subjectMessage" class="repeat" placeholder="You have a new message!" name="subject[1]">
 
                                         <!--        MESSAGE FORM FIELD-->
                                         <label class="inline">Message</label>
-                                        <textarea rows="4" placeholder="Enter message here" name="message[1]"></textarea>
+                                        <textarea rows="4" placeholder="Enter message here" class="repeat" name="message[1]"></textarea>
 
                                         <!--        <button type="button" id="btnAdd_2" name="btnAdd_2" class="btn btn-primary button success">Add Passage</button>
         <button type="button" id="btnDel_2" name="btnDel_2" class="btn btn-danger button alert"><span class="ui-button-text">Remove Passage</span></button>
@@ -136,15 +136,15 @@
                                                     <!-- Text input-->
                                                     <div class="form-group">
                                                         <label class="label_response control-label" for="_response">Response:</label>
-                                                        <textarea rows="3" id="_response" name="response[1][]" type="text" placeholder="response here" class="input_response form-control"></textarea>
+                                                        <input id="_response" name="response[1][]" type="text" placeholder="response here" class="input_response form-control repeat"></textarea>
                                                     </div>
                                                     <!--        PATH FORM FIELD-->
                                                     <label class="inline">Path</label>
-                                                    <input type="text" id="pathMessage" name="path[1][]" placeholder="Enter path">
+                                                    <input type="text" id="pathMessage" name="path[1][]" class="repeat"placeholder="Enter path">
 
                                                     <!--        Response time FORM FIELD-->
                                                     <label class="inline">Response Time</label>
-                                                    <input type="text" id="responseTime" name="responsetime[1][]" placeholder="Enter response time">
+                                                    <input type="text" id="responseTime" name="responsetime[1][]" class="repeat" placeholder="Enter response time">
                                                 </div>
                                                 <!-- end #entry1 -->
                                                 <!-- Button (Double) -->
@@ -180,10 +180,12 @@
 //            var newgroup = $('.passage:last').clone(true);
             var newgroup = $(this).parent().parent().clone(true);
 
-            newgroup.find('input').each(function () {
+            newgroup.find('.repeat').each(function () {
                 this.name = this.name.replace(/\[(\d+)\]/, function (str, p1) {
                     return '[' + (parseInt(p1, 10) + 1) + ']'
                 });
+
+
             }).end().appendTo($("#passages"));
         });
 
@@ -195,6 +197,8 @@
                 this.name = this.name.replace(/\[(\d+)\]/, function (str, p1) {
                     return '[' + (parseInt(p1, 10) + 1) + ']'
                 });
+
+
             }).end().appendTo($("#responses"));
         });
 
